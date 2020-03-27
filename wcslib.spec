@@ -18,7 +18,8 @@ Patch0:  increase_tspx_test_tol.patch
 BuildRequires: flex
 BuildRequires: pkgconfig(cfitsio)
 BuildRequires: pkgconfig(zlib)
-#BuildRequires: gcc-gfortran
+BuildRequires: gcc-gfortran
+BuildRequires: gfortran-devel
 
 %description
 WCSLIB is a library that implements the "World Coordinate System" (WCS)
@@ -58,8 +59,8 @@ Utils provided with %{name}.
 %autopatch -p1
 
 %build
-#export CC=gcc
-#export CXX=g++
+export CC=gcc
+export CXX=g++
 # To learn about aarch64
 cp -a /usr/lib/rpm/config.{guess,sub} config/
 
