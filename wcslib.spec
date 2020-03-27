@@ -58,6 +58,8 @@ Utils provided with %{name}.
 %autopatch -p1
 
 %build
+export CC=gcc
+export CXX=g++
 # To learn about aarch64
 cp -a /usr/lib/rpm/config.{guess,sub} config/
 
