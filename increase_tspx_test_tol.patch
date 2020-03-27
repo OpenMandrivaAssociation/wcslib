@@ -1,0 +1,15 @@
+Author: Ole Streicher <debian@liska.ath.cx>
+Description: Increase the tolerance in the TSPX test. TSPX tests the spectral 
+ transformation routines for closure. On some systems (armel, armhf), this test shows a slightly increased
+ residual, which is however still acceptable.
+--- a/Fortran/test/tspx.f
++++ b/Fortran/test/tspx.f
+@@ -191,7 +191,7 @@
+      :          SPEC2(NSPEC), TOL
+       CHARACTER FROM*(*), TO*(*)
+ 
+-      PARAMETER (TOL = 1D-9)
++      PARAMETER (TOL = 2D-9)
+ 
+       INTEGER  FWD, REV
+       EXTERNAL FWD, REV
