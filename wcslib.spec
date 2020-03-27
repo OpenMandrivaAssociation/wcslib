@@ -5,7 +5,7 @@
 
 Name:    wcslib
 Version: 6.4
-Release: 
+Release: 1
 Summary: An implementation of the FITS World Coordinate System standard
 
 Group:   Sciences/Astronomy
@@ -72,7 +72,7 @@ chmod 755 %{buildroot}%{_includedir}/wcslib-%{version}
 find %{buildroot} -name '*.a' -delete
 
 %check
-%ifnarch armv7hl armv5tl
+%ifnarch armv7hl
 # Don't parallelize
 make check
 %endif
