@@ -1,10 +1,10 @@
-%define  major         6
-%define  libname       %mklibname wcs %{major}
-%define  libname_virt  libwcs
-%define  develname     %mklibname wcs -d
+%define major 7
+%define libname %mklibname wcs %{major}
+%define libname_virt libwcs
+%define develname %mklibname wcs -d
 
 Name:    wcslib
-Version: 6.4
+Version: 7.3
 Release: 1
 Summary: An implementation of the FITS World Coordinate System standard
 
@@ -55,8 +55,7 @@ Requires: wcslib = %{version}-%{release}
 Utils provided with %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 export CC=gcc
@@ -65,8 +64,8 @@ export CXX=g++
 cp -a /usr/lib/rpm/config.{guess,sub} config/
 
 %configure
-#%configure --enable-fortran=gfortran
-%__make
+%configure --enable-fortran=gfortran
+%make_build
 
 %install
 %make_install
