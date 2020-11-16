@@ -60,10 +60,6 @@ Utils provided with %{name}.
 %build
 export CC=gcc
 export CXX=g++
-# To learn about aarch64
-cp -a /usr/lib/rpm/config.{guess,sub} config/
-
-%configure
 %configure --enable-fortran=gfortran
 %make_build
 
