@@ -70,12 +70,6 @@ rm -rf %{buildroot}/usr/share/doc/wcslib-%{version}
 chmod 755 %{buildroot}%{_includedir}/wcslib-%{version}
 find %{buildroot} -name '*.a' -delete
 
-%check
-%ifnarch armv7hl
-# Don't parallelize
-make check
-%endif
-
 %files -n %{libname}
 %doc COPYING.LESSER README
 %{_libdir}/*.so.%{major}{,.*}
