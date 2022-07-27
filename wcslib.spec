@@ -4,7 +4,7 @@
 %define develname %mklibname wcs -d
 
 Name:    wcslib
-Version: 7.3
+Version: 7.11
 Release: 1
 Summary: An implementation of the FITS World Coordinate System standard
 
