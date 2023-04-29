@@ -5,7 +5,7 @@
 
 Name:    wcslib
 Version: 7.12
-Release: 2
+Release: 3
 Summary: An implementation of the FITS World Coordinate System standard
 
 Group:   Sciences/Astronomy
