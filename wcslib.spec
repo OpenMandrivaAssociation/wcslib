@@ -1,7 +1,8 @@
 %define major 8
-%define libname %mklibname wcs %{major}
+%define devname %mklibname wcs -d
+%define libname %mklibname wcs
 %define libname_virt libwcs
-%define develname %mklibname wcs -d
+%define oldlibname %mklibname wcs 7
 
 Summary:	An implementation of the FITS World Coordinate System standard
 Name:		wcslib
@@ -29,19 +30,20 @@ Summary: An implementation of the FITS World Coordinate System standard
 Group: Sciences/Astronomy
 License: LGPLv3+
 Provides: wcslib = %{version}-%{release}
+Obsoletes:	%{oldlibname}
 
 %description -n %{libname}
 WCSLIB is a library that implements the "World Coordinate System" (WCS)
 convention in FITS (Flexible Image Transport System).
 
-%package -n %{develname}
+%package -n %{devname}
 Summary: Libraries, includes, etc. used to develop an application with %{name}
 Group: Sciences/Astronomy
 License: LGPLv3+
 Requires: wcslib = %{version}-%{release}
 Provides: wcslib-devel = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 These are the files needed to develop an application using %{name}.
 
 %package utils
@@ -73,7 +75,7 @@ find %{buildroot} -name '*.a' -delete
 %doc COPYING.LESSER README
 %{_libdir}/*.so.%{major}{,.*}
 
-%files -n %{develname}
+%files -n %{devname}
 %doc COPYING.LESSER html wcslib.pdf
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/wcslib.pc
@@ -84,3 +86,4 @@ find %{buildroot} -name '*.a' -delete
 %doc COPYING
 %{_bindir}/*
 %{_mandir}/man1/*
+
