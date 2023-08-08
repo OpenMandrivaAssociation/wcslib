@@ -1,19 +1,18 @@
-%define major 7
+%define major 8
 %define libname %mklibname wcs %{major}
 %define libname_virt libwcs
 %define develname %mklibname wcs -d
 
-Name:    wcslib
-Version: 7.12
-Release: 3
-Summary: An implementation of the FITS World Coordinate System standard
-
-Group:   Sciences/Astronomy
+Summary:	An implementation of the FITS World Coordinate System standard
+Name:		wcslib
+Version:	8.1
+Release:	1
+Group:		Sciences/Astronomy
 # Library is under LGPLv3+ utils under GPLv3+
-License: LGPLv3+
-URL:     http://www.atnf.csiro.au/people/mcalabre/WCS/
-Source0: ftp://ftp.atnf.csiro.au/pub/software/wcslib/%{name}-%{version}.tar.bz2
-Patch0:  increase_tspx_test_tol.patch
+License:	LGPLv3+
+URL:		http://www.atnf.csiro.au/people/mcalabre/WCS/
+Source0:	http://www.atnf.csiro.au/people/mcalabre/WCS/%{name}-%{version}.tar.bz2
+Patch0:		increase_tspx_test_tol.patch
 
 BuildRequires: flex
 BuildRequires: pkgconfig(cfitsio)
