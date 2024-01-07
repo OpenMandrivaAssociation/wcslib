@@ -25,6 +25,8 @@ BuildRequires: gfortran-devel
 WCSLIB is a library that implements the "World Coordinate System" (WCS)
 convention in FITS (Flexible Image Transport System).
 
+#--------------------------------------------------------------------
+
 %package -n %{libname}
 Summary: An implementation of the FITS World Coordinate System standard
 Group: Sciences/Astronomy
@@ -36,6 +38,12 @@ Obsoletes:	%{oldlibname}
 WCSLIB is a library that implements the "World Coordinate System" (WCS)
 convention in FITS (Flexible Image Transport System).
 
+%files -n %{libname}
+%doc COPYING.LESSER README
+%{_libdir}/*.so.%{major}{,.*}
+
+#--------------------------------------------------------------------
+
 %package -n %{devname}
 Summary: Libraries, includes, etc. used to develop an application with %{name}
 Group: Sciences/Astronomy
@@ -46,6 +54,15 @@ Provides: wcslib-devel = %{version}-%{release}
 %description -n %{devname}
 These are the files needed to develop an application using %{name}.
 
+%files -n %{devname}
+%doc COPYING.LESSER html wcslib.pdf
+%{_libdir}/*.so
+%{_libdir}/pkgconfig/wcslib.pc
+%{_includedir}/wcslib
+%{_includedir}/wcslib-%{version}
+
+#--------------------------------------------------------------------
+
 %package utils
 Summary: Utility programs provided by %{name}
 Group: Sciences/Astronomy
@@ -54,6 +71,13 @@ Requires: wcslib = %{version}-%{release}
 
 %description utils
 Utils provided with %{name}.
+
+%files utils
+%doc COPYING
+%{_bindir}/*
+%{_mandir}/man1/*
+
+#--------------------------------------------------------------------
 
 %prep
 %autosetup -p1
@@ -66,24 +90,14 @@ export CXX=g++
 
 %install
 %make_install
+
 # fix permissions
-rm -rf %{buildroot}/usr/share/doc/wcslib-%{version}
 chmod 755 %{buildroot}%{_includedir}/wcslib-%{version}
+
+# remove duplicated docs
+rm -rf %{buildroot}%{_docdir}/wcslib
+rm -rf %{buildroot}%{_docdir}/wcslib-%{version}
+
+# remove static stuff
 find %{buildroot} -name '*.a' -delete
-
-%files -n %{libname}
-%doc COPYING.LESSER README
-%{_libdir}/*.so.%{major}{,.*}
-
-%files -n %{devname}
-%doc COPYING.LESSER html wcslib.pdf
-%{_libdir}/*.so
-%{_libdir}/pkgconfig/wcslib.pc
-%{_includedir}/wcslib
-%{_includedir}/wcslib-%{version}
-
-%files utils
-%doc COPYING
-%{_bindir}/*
-%{_mandir}/man1/*
 
