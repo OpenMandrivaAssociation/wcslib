@@ -6,7 +6,7 @@
 
 Summary:	An implementation of the FITS World Coordinate System standard
 Name:		wcslib
-Version:	8.1
+Version:	8.2.2
 Release:	1
 Group:		Sciences/Astronomy
 # Library is under LGPLv3+ utils under GPLv3+
