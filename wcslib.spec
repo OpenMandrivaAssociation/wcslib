@@ -11,7 +11,7 @@ Release:	1
 Group:		Sciences/Astronomy
 # Library is under LGPLv3+ utils under GPLv3+
 License:	LGPLv3+
-URL:		http://www.atnf.csiro.au/people/mcalabre/WCS/
+URL:		https://www.atnf.csiro.au/people/mcalabre/WCS/
 Source0:	http://www.atnf.csiro.au/people/mcalabre/WCS/%{name}-%{version}.tar.bz2
 Patch0:		increase_tspx_test_tol.patch
 
