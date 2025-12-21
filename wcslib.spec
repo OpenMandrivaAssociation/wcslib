@@ -15,6 +15,11 @@ URL:		https://www.atnf.csiro.au/people/mcalabre/WCS/
 Source0:	http://www.atnf.csiro.au/people/mcalabre/WCS/%{name}-%{version}.tar.bz2
 Patch0:		increase_tspx_test_tol.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: flex
 BuildRequires: pkgconfig(cfitsio)
 BuildRequires: pkgconfig(zlib)
